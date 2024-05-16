@@ -29,27 +29,31 @@ const FoodCategory = () => {
           clickable: true,
         }}
         modules={[Pagination]}
-        className="mySwiper "
+        className="mySwiper  "
       >
         <SwiperSlide> 
             <img src={slide1} alt="" />
-            <h4 className="text-center font-semibold text-xl uppercase ">salad</h4>
+            <h4 className="text-center font-bold text-xl uppercase text-white -mt-12">salad</h4>
         </SwiperSlide>
        
         <SwiperSlide> 
             <img src={slide2} alt="" />
+            <h4 className="text-center font-bold text-xl uppercase text-white -mt-12">soups</h4>
         </SwiperSlide>
        
         <SwiperSlide> 
             <img src={slide3} alt="" />
+            <h4 className="text-center font-bold text-xl uppercase text-white -mt-12">pizzas</h4>
         </SwiperSlide>
        
         <SwiperSlide> 
             <img src={slide4} alt="" />
+            <h4 className="text-center font-bold text-xl uppercase text-white -mt-12">desserts</h4>
         </SwiperSlide>
        
         <SwiperSlide> 
             <img src={slide5} alt="" />
+            <h4 className="text-center font-bold text-xl uppercase text-white -mt-12">salad</h4>
         </SwiperSlide>
        
         
