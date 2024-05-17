@@ -4,12 +4,12 @@ import './featured.css'
 
 const Featured = () => {
     return (
-        <div className="featured-bg pt-5 pb-20 my-10">
+        <div className="featured-bg pt-5 pb-20 my-10 bg-fixed">
             <Titles 
             subTitle={"---Check it out---"}
             title={'FROM OUR MENU'}
             ></Titles>
-            <div className="flex items-center justify-center gap-12 px-20 ">
+            <div className="flex items-center justify-center gap-12 px-20 bg-slate-500 bg-opacity-35">
                <div className="w-1/2">
                <img className="h-[200px] w-full pl-20" src={featuredImg} alt="" />
                </div>
