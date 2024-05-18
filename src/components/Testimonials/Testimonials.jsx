@@ -38,7 +38,7 @@ const Testimonials = () => {
                             <div className="flex flex-col items-center justify-center mx-24 my-16 gap-4 text-center">
                                 <Rating
                                     style={{ maxWidth: 180 }}
-                                    value={3}
+                                    value={review.rating}
                                     readOnly
                                 />
                                 <p>{review.details}</p>
