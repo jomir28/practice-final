@@ -4,11 +4,12 @@ const Navbar = () => {
     
  const navlinks = <>
          <li><NavLink to="/" className={({ isActive }) => isActive ? 'font-bold  rounded-md px-3 bg-orange-400 text-white hover:bg-blue-500 hover:text-white border-b-4 border-blue-600 border-solid' : 'font-bold hover:bg-sky-200 text-white'}>Home</NavLink></li>
+         <li><NavLink to="/menu" className={({ isActive }) => isActive ? 'font-bold  rounded-md px-3 bg-orange-400 text-white hover:bg-blue-500 hover:text-white border-b-4 border-blue-600 border-solid' : 'font-bold hover:bg-sky-200 text-white'}>menu</NavLink></li>
 
  </>
 
     return (
-        <div className="navbar rounded-md fixed z-10 bg-opacity-30 bg-black container mx-auto">
+        <div className="navbar rounded-md fixed z-10 bg-black bg-opacity-30  container mx-auto">
         <div className="navbar-start">
             <div className="dropdown">
                 <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
