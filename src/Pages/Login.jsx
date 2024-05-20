@@ -96,7 +96,7 @@ const Login = () => {
                         <hr className="border border-dashed px-10 border-gray-400" />
                     </div>
                     <div className="mx-auto mb-3">
-                        <p className="font-semibold">Do not have an account ? <Link className="font-bold text-blue-500">Register</Link> </p>
+                        <p className="font-semibold">Do not have an account ? <Link to="/register" className="font-bold text-blue-500">Register</Link> </p>
                     </div>
                 </div>
             </div>
