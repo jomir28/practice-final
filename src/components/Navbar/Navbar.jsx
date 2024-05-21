@@ -3,10 +3,12 @@ import { Link, NavLink } from "react-router-dom";
 import { FaCartArrowDown } from "react-icons/fa";
 import { useContext } from "react";
 import { AuthContext } from "../Providers/AuthProvider";
+import useCart from "../Hooks/useCart";
 
 const Navbar = () => {
 
     const { user, logOut } = useContext(AuthContext)
+    const [cart] = useCart()
 
     const navlinks = <>
         <li><NavLink to="/" className={({ isActive }) => isActive ? 'font-bold  rounded-md px-3 bg-orange-400 text-white hover:bg-blue-500 hover:text-white border-b-4 border-blue-600 border-solid' : 'font-bold hover:bg-sky-200 text-white'}>Home</NavLink></li>
@@ -15,7 +17,7 @@ const Navbar = () => {
         <li>
             <button className="btn-sm">
                 <FaCartArrowDown className="font-bold text-xl text-white"></FaCartArrowDown>
-                <div className="badge badge-secondary">+0</div>
+                <div className="badge badge-secondary">+{cart?.length}</div>
             </button>
         </li>
     </>
@@ -25,7 +27,6 @@ const Navbar = () => {
         logOut()
             .then()
             .catch()
-
     }
 
 
