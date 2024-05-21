@@ -1,6 +1,6 @@
-import { useContext, useEffect, useRef, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { FaEye, FaEyeSlash, FaGithub, FaGoogle } from "react-icons/fa";
-import { Link } from "react-router-dom";
+import { Link,  useLocation, useNavigate } from "react-router-dom";
 import { loadCaptchaEnginge, LoadCanvasTemplate, validateCaptcha } from 'react-simple-captcha';
 import { AuthContext } from "../components/Providers/AuthProvider";
 import Swal from "sweetalert2";
@@ -12,6 +12,8 @@ const Login = () => {
     const [showPassword, setShowPassword] = useState(false)
     const [logDisabled, setLogDisabled] = useState(true)
     const {signIn} = useContext(AuthContext)
+    const location = useLocation()
+    const navigate = useNavigate()
 
 
     useEffect(()=>{
@@ -48,6 +50,7 @@ const Login = () => {
                 showConfirmButton: false,
                 timer: 1500
               });
+              navigate(location?.state ? location.state : "/")
         })
         .catch(error=>{
             console.log("login error hoilo", error)

@@ -1,5 +1,7 @@
-import { useContext } from "react";
+
 import { Link, NavLink } from "react-router-dom";
+import { FaCartArrowDown } from "react-icons/fa";
+import { useContext } from "react";
 import { AuthContext } from "../Providers/AuthProvider";
 
 const Navbar = () => {
@@ -10,12 +12,16 @@ const Navbar = () => {
         <li><NavLink to="/" className={({ isActive }) => isActive ? 'font-bold  rounded-md px-3 bg-orange-400 text-white hover:bg-blue-500 hover:text-white border-b-4 border-blue-600 border-solid' : 'font-bold hover:bg-sky-200 text-white'}>Home</NavLink></li>
         <li><NavLink to="/menu" className={({ isActive }) => isActive ? 'font-bold  rounded-md px-3 bg-orange-400 text-white hover:bg-blue-500 hover:text-white border-b-4 border-blue-600 border-solid' : 'font-bold hover:bg-sky-200 text-white'}>menu</NavLink></li>
         <li><NavLink to="/order" className={({ isActive }) => isActive ? 'font-bold  rounded-md px-3 bg-orange-400 text-white hover:bg-blue-500 hover:text-white border-b-4 border-blue-600 border-solid' : 'font-bold hover:bg-sky-200 text-white'}>Our Order</NavLink></li>
-
+        <li>
+            <button className="btn-sm">
+                <FaCartArrowDown className="font-bold text-xl text-white"></FaCartArrowDown>
+                <div className="badge badge-secondary">+0</div>
+            </button>
+        </li>
     </>
 
 
     const handleLogout = () => {
-
         logOut()
             .then()
             .catch()
@@ -46,7 +52,7 @@ const Navbar = () => {
 
 
 
-              {  user ? <>
+                {user ? <>
                     <div className="dropdown dropdown-end">
                         <div tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar">
                             <div className="w-11 rounded-full ">
