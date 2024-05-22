@@ -1,16 +1,22 @@
 import { useContext, useState } from "react";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useForm } from 'react-hook-form';
 import { AuthContext } from "../components/Providers/AuthProvider";
+import Swal from "sweetalert2";
+import useAxiosPublic from "../components/Hooks/useAxiosPublic";
+import SocialLogin from "../components/SocialLogin/SocialLogin";
 
 const Register = () => {
     const [showPassword, setShowPassword] = useState(false)
     const {createUser} = useContext(AuthContext)
+    const axiosPublic = useAxiosPublic()
+    const navigate = useNavigate()
 
     const {
         register,
         handleSubmit,
+        reset,
         formState: { errors },
     } = useForm();
     const onSubmit = (data) => {
@@ -18,6 +24,25 @@ const Register = () => {
         createUser(data.email, data.password)
         .then(result=>{
             console.log(result.user)
+            const user ={
+                name: data.name,
+                email: data.email
+            }
+            axiosPublic.post("/users", user)
+            .then(res=>{
+                console.log("user er data", res.data)
+            })
+            .catch(error=> console.error(error))
+
+            reset()
+            Swal.fire({
+                position: "top-end",
+                icon: "success",
+                title: "Register success",
+                showConfirmButton: false,
+                timer: 1500
+              });
+              navigate("/")
         })
         .catch(error=>{
             console.error(error)
@@ -74,6 +99,10 @@ const Register = () => {
                             <button className="btn btn-primary">Register</button>
                         </div>
                     </form>
+                    <SocialLogin></SocialLogin>
+                    <div className="px-10 my-2">
+                        <hr className="border border-dashed px-10 border-gray-400" />
+                    </div>
                     <div className="mx-auto mb-3">
                         <p className="font-semibold">Already have an account ? <Link to="/login" className="font-bold text-blue-500">Login</Link> </p>
                     </div>

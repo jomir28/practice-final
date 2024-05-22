@@ -1,9 +1,10 @@
 import { useContext, useEffect, useState } from "react";
-import { FaEye, FaEyeSlash, FaGithub, FaGoogle } from "react-icons/fa";
+import { FaEye, FaEyeSlash} from "react-icons/fa";
 import { Link,  useLocation, useNavigate } from "react-router-dom";
 import { loadCaptchaEnginge, LoadCanvasTemplate, validateCaptcha } from 'react-simple-captcha';
 import { AuthContext } from "../components/Providers/AuthProvider";
 import Swal from "sweetalert2";
+import SocialLogin from "../components/SocialLogin/SocialLogin";
 
 
 
@@ -102,17 +103,11 @@ const Login = () => {
                         </div>
 
                         <div className="form-control mt-5">
-                            <button disabled={logDisabled} className="btn btn-primary">Login</button>
+                            <button disabled={false} className="btn btn-primary">Login</button>
                         </div>
 
                     </form>
-                    <div>
-                        <h2 className="font-bold flex items-center justify-center text-blue-600 divider px-5">Login with social accout</h2>
-                        <div className="flex items-center justify-center gap-4 my-3">
-                            <button  ><FaGoogle className="font-bold text-xl text-green-800"></FaGoogle></button>
-                            <button ><FaGithub className="text-2xl font-bold  text-green-800"></FaGithub></button>
-                        </div>
-                    </div>
+                  <SocialLogin></SocialLogin>
                     <div className="px-10 my-2">
                         <hr className="border border-dashed px-10 border-gray-400" />
                     </div>
