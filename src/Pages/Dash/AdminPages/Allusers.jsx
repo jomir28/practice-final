@@ -12,14 +12,11 @@ const Allusers = () => {
     const { data: users, refetch } = useQuery({
         queryKey: ['users'],
         queryFn: async () => {
-            const res = await axiosSecure.get("/users", {
-                headers: {
-                    authorization: `Bearer ${localStorage.getItem('access-token')}`
-                }
-            })
+            const res = await axiosSecure.get("/users")
             return res.data;
         }
     })
+
 
     const handleMakeAdmin = (user) => {
         axiosSecure.patch(`/users/admin/${user._id}`)
@@ -101,10 +98,10 @@ const Allusers = () => {
                                         {index + 1}
                                     </th>
                                     <td>
-                                        <p>{user.name}</p>
+                                        <p>{user?.name}</p>
                                     </td>
                                     <td>
-                                        <p>{user.email}</p>
+                                        <p>{user?.email}</p>
                                     </td>
                                     <td>
                                       { user.role === 'admin' ? "Admin" : <button onClick={() => handleMakeAdmin(user)} className="btn btn-ghost btn-md"><FaUsers className="text-xl text-gray-600"></FaUsers></button>}
