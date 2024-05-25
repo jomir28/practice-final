@@ -1,9 +1,10 @@
-import { FaAd, FaBars, FaCalendar, FaHome, FaList, FaPaypal, FaShoppingCart, FaUser, FaUsers, FaUtensils } from "react-icons/fa";
+import { FaAd, FaBars, FaCalendar, FaHome, FaList, FaPaypal, FaShoppingCart, FaUsers, FaUtensils } from "react-icons/fa";
 import { NavLink, Outlet } from "react-router-dom";
+import useAdmin from "../components/Hooks/useAdmin";
 
 const DashBoard = () => {
 
-    const isAdmin = true;
+    const [isAdmin] = useAdmin();
 
     return (
         <div className="flex container mx-auto">
@@ -38,7 +39,7 @@ const DashBoard = () => {
                                     <FaUsers></FaUsers>
                                     All Users</NavLink>
                             </li>
-                         
+
                         </> :
                             <>
 
